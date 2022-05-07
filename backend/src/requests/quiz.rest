@@ -1,0 +1,107 @@
+@urlbase = http://localhost:4000/api/v1
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzQ3ZDRmZWYwNmIzMzExYzMxZWU1NSIsImlhdCI6MTY1MTg5OTM4NywiZXhwIjoxNjUxOTg1Nzg3fQ.EBZ9CxEe23jdsQYjpmEfVpW3xHZnZdamMwu_HgFeoPY
+#################################
+
+POST {{urlbase}}/quiz/ HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "My Quiz",
+  "description": "My Quiz Description",
+  "questions": [
+    {
+      "question": "What is your name?",
+      "answers": [
+        {
+          "answer": "John",
+          "correct": true
+        },
+        {
+          "answer": "Jane",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}
+#################################
+
+GET {{urlbase}}/quiz/?page=0&size=10&name=Quiz HTTP/1.1
+Authorization: Bearer {{token}}
+#################################
+
+GET {{urlbase}}/quiz/6274997bfe309a1ae400777c HTTP/1.1
+Authorization: Bearer {{token}}
+#################################
+
+PUT {{urlbase}}/quiz/62749a6a0f5a4456baacc732 HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "My Quiz 2 Updated",
+  "description": "My Quiz Description updated",
+  "questions": [
+    {
+      "question": "What is your name?",
+      "answers": [
+        {
+          "answer": "John",
+          "correct": true
+        },
+        {
+          "answer": "Jane",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}
+#################################
+
+DELETE {{urlbase}}/quiz/62749a6a0f5a4456baacc732 HTTP/1.1
+Authorization: Bearer {{token}}
+#################################
+
+POST {{urlbase}}/quiz/627597e53c27e2377ee21b1c/question HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "question": "What are you doing right now?",
+  "answers": [
+    {
+      "answer": "Playing",
+      "correct": true
+    },
+    {
+      "answer": "Eating",
+      "correct": false
+    }
+  ]
+}
+#################################
+
+PUT {{urlbase}}/quiz/627597e53c27e2377ee21b1c/question/62759a075aa75d28c309d882 HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "question": "What are you doing right now my friend?",
+  "answers": [
+    {
+      "answer": "Playing",
+      "correct": true
+    },
+    {
+      "answer": "Eating",
+      "correct": false
+    }
+  ]
+}
+#################################
+
+DELETE  {{urlbase}}/quiz/627597e53c27e2377ee21b1c/question/62759a075aa75d28c309d882 HTTP/1.1
+Authorization: Bearer {{token}}
+#################################

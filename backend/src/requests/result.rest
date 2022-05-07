@@ -1,0 +1,28 @@
+@urlbase = http://localhost:4000/api/v1
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzQ3ZDRmZWYwNmIzMzExYzMxZWU1NSIsImlhdCI6MTY1MTg5OTM4NywiZXhwIjoxNjUxOTg1Nzg3fQ.EBZ9CxEe23jdsQYjpmEfVpW3xHZnZdamMwu_HgFeoPY
+#################################
+
+POST {{urlbase}}/result/ HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "quiz": "62763a4b30859373d27c2ed8",
+  "user": "62747d4fef06b3311c31ee55",
+  "questions": [
+    {
+      "_id": "62763a4b30859373d27c2ed9",
+      "question": "What is your name?",
+      "answer": "John"
+    }
+  ]
+}
+#################################
+
+GET {{urlbase}}/result/?page=0&size=10&name=Quiz HTTP/1.1
+Authorization: Bearer {{token}}
+#################################
+
+GET {{urlbase}}/result/62769290b7310b10c5d7ab3a HTTP/1.1
+Authorization: Bearer {{token}}
+#################################
